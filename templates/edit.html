@@ -1,0 +1,75 @@
+<html>
+ 
+<head>
+    <title>C.R.U.D</title>
+    <style>
+        .container {
+            margin-left: 55px;
+            margin-top: 30px;
+            width: 300px;
+            height:290px;
+            padding: 15px;
+            background-color:green;
+        }
+    
+        input[type=text] {
+                width: 60%;
+                padding: 7px 10px;
+                margin: 8px 0;
+                box-sizing: border-box;
+        }
+        #email{
+            width: 60%;
+            padding: 7px 10px;
+            /* margin: 8px 3; */
+            box-sizing: border-box;
+            margin-left:25px;
+        }
+        button{
+            margin-left:34px;
+            margin-top:10px;
+        }
+        a:link, a:visited {
+            background-color: #f44336;
+            color: white;
+            padding: 14px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            position:absolute;
+            left:18%;
+            top:48%;
+              }
+
+            a:hover, a:active {
+            background-color: black;
+            }
+    </style>
+</head>
+ 
+<body>  
+
+    <p style="margin-left:550px;"><a href="/member/retrieve/"class > All Details</a></p>
+    <div class="container">
+        <form action="/member/update/{{object.id}}" method="POST"  enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <label for="city_name">City_name</label>
+                    <input type="text" id="city_name" name="city_name" value={{object.city_name}}><br>
+                    <label for="state_name">State_name</label>
+                    <input type="text" id="state_name" name="state_name" value={{object.state_name}}><br>
+                    <label for="country_name">Country_name</label>
+                    <input type="text" id="country_name" name="country_name" value={{object.country_name}}><br>
+                    {% if i.image  %} 
+                    <img src="{{i.image.url}}" alg='image here' class="prod-size">
+                    {% endif %}
+                   <label for="myfile" class="demo">Image:</label>
+                    <input type="file"   class="form-control demo" id="image" name="image" >
+                    <button  type="Submit">Submit</button> 
+                </div>
+                    
+                </form>
+          
+    </div>
+</body>
+ 
+</html>
